@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Column(children: [const Text('Assets'), Text('$assets')]),
+      home: SelectionArea(
+        child: Column(children: [const Text('Assets'), Text('$assets')]),
+      ),
     );
   }
 }

@@ -84,7 +84,52 @@ subgraph utilities
         depend-test-utilities[dev<br/>dependencies]
     end
 end
-
-
-
 ```
+
+## Assets seen from test
+
+The tests see the test_tools assets.
+
+```json
+[
+    "packages/test_tools/assets/docs/sample301.md",
+    "packages/test_tools/assets/models/meta301.json",
+    "packages/test_tools/assets/models/template301.json",
+
+    "packages/theme_common/assets/diagrams/draw201.vsdx",
+    "packages/theme_common/assets/docs/doc201.md",
+    "packages/theme_common/assets/docs/doc202.md",
+
+    "packages/utilities/assets/docs/doc101.md",
+    "packages/utilities/assets/docs/doc102.md",
+    "packages/utilities/assets/models/model101.json",
+
+    "packages/utilities/lib/resources/icon101.png",
+    "packages/utilities/lib/resources/libassets.json"
+]
+```
+
+Files in lib will be backaged up with the app. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
+
+## Assets seen from an app
+
+The demo application does not see the tools_assets but it does see other assets brought in by other packages used in the application.
+
+```json
+[
+    "packages/cupertino_icons/assets/CupertinoIcons.ttf",
+
+    "packages/theme_common/assets/diagrams/draw201.vsdx",
+    "packages/theme_common/assets/docs/doc201.md",
+    "packages/theme_common/assets/docs/doc202.md",
+
+    "packages/utilities/assets/docs/doc101.md",
+    "packages/utilities/assets/docs/doc102.md",
+    "packages/utilities/assets/models/model101.json",
+
+    "packages/utilities/lib/resources/icon101.png",
+    "packages/utilities/lib/resources/libassets.json"
+]
+```
+
+Files in lib will be backaged up with the app. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
