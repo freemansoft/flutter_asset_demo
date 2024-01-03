@@ -18,7 +18,7 @@ This project contains references from the demo to the three other packages. One 
 flowchart LR
 
 subgraph demo-example[demo example app]
-    lib-example[lfib]
+    lib-example[lib]
     subgraph assets-example[assets]
     end
     subgraph pubspec-demo[pubspec]
@@ -28,7 +28,7 @@ subgraph demo-example[demo example app]
 end
 
 subgraph demo
-    lib-demo[lfib]
+    lib-demo[lib]
     subgraph assets-demo[assets]
     end
     subgraph pubspec-test[pubspec]
