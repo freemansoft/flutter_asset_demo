@@ -109,7 +109,7 @@ The tests see the test_tools assets.
 ]
 ```
 
-Files in lib will be backaged up with the app. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
+Files in lib will be packaged up with the app but they only appear to the AssetManager if you add them to the assets in `pubspec.yaml`. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
 
 ## Assets seen from an app
 
@@ -132,4 +132,4 @@ The demo application does not see the tools_assets but it does see other assets 
 ]
 ```
 
-Files in lib will be backaged up with the app. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
+Files in lib will be packaged up with the app but they only appear to the AssetManager if you add them to the assets in `pubspec.yaml`. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
