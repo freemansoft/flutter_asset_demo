@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:demo/asset_stuff.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,9 +20,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    JsonEncoder prettyEncoder = const JsonEncoder.withIndent(' ');
+
     return MaterialApp(
       home: SelectionArea(
-        child: Column(children: [const Text('Assets'), Text('$assets')]),
+        child: Column(children: [
+          const Text('Assets'),
+          Text(prettyEncoder.convert(assets))
+        ]),
       ),
     );
   }
