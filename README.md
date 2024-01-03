@@ -14,6 +14,16 @@ This means that assets removed from the included pubspec.yaml may still appear i
 
 This project contains references from the demo to the three other packages. One of those packages is only used in tests.  `theme_common`, `utilities` and `test_tools` have their own assets that become available to any program or package that takes them as a dependency.  `test_tools` are only available to the demo tests because they are only part of `dev_dependencies`.  The assets in `theme_common` and `utilities` area available to both tests and the program because they are brought in via `dependencies` in the `pubspec.yaml`.
 
+### pubspec.yaml
+
+* [demo](packages/demo/pubspec.yaml)
+  * [demo/example](packages/demo/example/pubspec.yaml)
+* [test_tools](packages/test_tools/pubspec.yaml)
+* [theme_common](packages/theme_common/pubspec.yaml)
+* [utilities](packages/utilities/pubspec.yaml)
+
+## Dependencies
+
 ```mermaid
 flowchart LR
 
