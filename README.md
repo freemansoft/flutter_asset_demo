@@ -48,10 +48,10 @@ subgraph demo
 
 end
 
-depend-example --depends on--> demo
-depend-demo --depends on--> theme_common
-depend-demo --depends on--> utilities
-depend-test-demo -- depends on--> test_tools
+depend-example -.-> demo
+depend-demo -.-> theme_common
+depend-demo -.-> utilities
+depend-test-demo -.-> test_tools
 
 subgraph test_tools
     lib-test[lib]
