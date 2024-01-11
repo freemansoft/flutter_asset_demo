@@ -1,6 +1,6 @@
 # Exploring assets, asset manifests and how they are scoped
 
-This standalone repo lets provides a sandbox for exploring asset behavior.
+This repository provides a sandbox for exploring asset behavior across package library imports. Packages have hierarchical and transitive relationships across the example application and library tests.
 
 * packages, libraries and assets scoped to our program
 * packages, libraries and assets scoped to our tests
@@ -50,12 +50,6 @@ subgraph utilities
     end
 end
 ```
-
-## Caveat
-
-Assets that are added via pubspec.yaml are copied into a location that is used to populate the assets.
-That location may not be cleared when referencing the package via relative location from the demo pubspect.yaml.
-This means that assets removed from the included pubspec.yaml may still appear in the AssetManifest until some type of clean operation occurs.
 
 ## [Flutter Assets Demo](https://github.com/freemansoft/flutter_assets_demo) Project structure
 
@@ -228,3 +222,9 @@ We can see this when interrogating for available assets.
 ## Non code files in /lib
 
 Files in lib will be packaged up with the app but they only appear to the AssetManager if you add them to the assets in `pubspec.yaml`. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
+
+## Flutter Asset behavior in hot reload
+
+Assets that are added via pubspec.yaml are copied into a location that is used to populate the assets.
+That location may not be cleared when referencing the package via relative location from the demo pubspect.yaml.
+This means that assets removed from the included pubspec.yaml may still appear in the AssetManifest until some type of clean operation occurs.
