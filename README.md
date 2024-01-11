@@ -10,9 +10,14 @@ Assets that are added via pubspec.yaml are copied into a location that is used t
 That location may not be cleared when referencing the package via relative location from the demo pubspect.yaml.
 This means that assets removed from the included pubspec.yaml may still appear in the AssetManifest until some type of clean operation occurs.
 
-## Project structure
+## [Flutter Assets Demo](https://github.com/freemansoft/flutter_assets_demo) Project structure
 
-This project contains references from the demo to the three other packages. One of those packages is only used in tests.  `theme_common`, `utilities` and `test_tools` have their own assets that become available to any program or package that takes them as a dependency.  `test_tools` are only available to the demo tests because they are only part of `dev_dependencies`.  The assets in `theme_common` and `utilities` area available to both tests and the program because they are brought in via `dependencies` in the `pubspec.yaml`.
+This project contains several cross package references.
+
+The [demo] package contains references to  `test_utils`, `theme_common` and `utilities` which all have their own assets. `test_utils` is only referenced as a dev dependency and is only in scope in tests. `theme_common`, `utilities` and `test_tools` have their own assets that become available to any program or package that takes them as a dependency pulling them into scope.
+
+1. Assets in `test_tools` are only available to the demo tests because they are only part of `dev_dependencies`.
+1. The assets in `theme_common` and `utilities` area available to both tests and the program because they are brought in via `dependencies` in the `pubspec.yaml`.
 
 ### pubspec.yaml
 
