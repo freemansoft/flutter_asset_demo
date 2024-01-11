@@ -1,5 +1,7 @@
 # Exploring assets, asset manifests and how they are scoped
 
+This standalone repo lets provides a sandbox for exploring asset behavior.
+
 * packages, libraries and assets scoped to our program
 * packages, libraries and assets scoped to our tests
 
