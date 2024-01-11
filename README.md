@@ -51,6 +51,10 @@ subgraph utilities
 end
 ```
 
+## Youtube videos
+
+[![Exploring Flutter package and asset dependencies](https://i.ytimg.com/an_webp/NcTFTOk3cbg/mqdefault_6s.webp?du=3000&sqp=CPCU_awG&rs=AOn4CLDi3tVsNk6ETMk4E_fsNKJ2FU8tDg)](https://youtu.be/NcTFTOk3cbg?feature=shared)
+
 ## [Flutter Assets Demo](https://github.com/freemansoft/flutter_assets_demo) Project structure
 
 This project contains several cross package references.
