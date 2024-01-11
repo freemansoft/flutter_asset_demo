@@ -1,4 +1,4 @@
-# This demonstrates reading the manifest file to find assets in included packages
+# Exploring assets, asset manifests and how they are scoped
 
 * test_tools an assets package that should be included only in dev scope
 * utilities an assets package
