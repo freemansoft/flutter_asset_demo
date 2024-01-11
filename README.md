@@ -3,6 +3,52 @@
 * packages, libraries and assets scoped to our program
 * packages, libraries and assets scoped to our tests
 
+```mermaid
+flowchart LR
+
+subgraph demo
+    lib-demo[lib]
+    subgraph assets-demo[assets]
+    end
+    subgraph pubspec-test[pubspec]
+        depend-demo[dependencies]
+        depend-test-demo[dev<br/>dependencies]
+    end
+
+end
+
+depend-demo -.-> utilities
+depend-test-demo -.-> test_tools
+
+subgraph test_tools
+    lib-test[lib]
+    subgraph assets-test[assets]
+        direction TB
+        assets-tools-docs[docs]
+        assets-tools-models[models]
+    end
+    subgraph pubspec-tools[pubspec]
+        direction TB
+        depend-tools[dependencies]
+        depend-tools-test[dev<br/>dependencies]
+    end
+end
+
+subgraph utilities
+    lib-utilities[lib]
+    subgraph assets-utilities[assets]
+        direction TB
+        assets-utilities-docs[docs]
+        assets-utilities-models[models]
+    end
+    subgraph pubspec-utilities[pubspec]
+        direction TB
+        depend-utilities[dependencies]
+        depend-test-utilities[dev<br/>dependencies]
+    end
+end
+```
+
 ## Caveat
 
 Assets that are added via pubspec.yaml are copied into a location that is used to populate the assets.
@@ -26,7 +72,7 @@ The [demo] package contains references to  `test_utils`, `theme_common` and `uti
 * [theme_common](packages/theme_common/pubspec.yaml)
 * [utilities](packages/utilities/pubspec.yaml)
 
-## Dependencies
+## Dependencies in this repository
 
 ```mermaid
 flowchart LR
