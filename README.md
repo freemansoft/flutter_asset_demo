@@ -1,8 +1,7 @@
 # Exploring assets, asset manifests and how they are scoped
 
-* test_tools an assets package that should be included only in dev scope
-* utilities an assets package
-* theme_common an assets package
+* packages, libraries and assets scoped to our program
+* packages, libraries and assets scoped to our tests
 
 ## Caveat
 
