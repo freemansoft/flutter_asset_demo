@@ -96,9 +96,63 @@ subgraph utilities
 end
 ```
 
-## Assets seen from test
+## Assets visible to applications and libraries
 
-The tests see the test_tools assets.
+Applications and packages see everything refenrenced in `dependencies:` in `pubspec.yaml`
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  utilities:
+    path: ../utilities
+  theme_common:
+    path: ../theme_common
+```
+
+The demo application sees assets transitively brought in from library packages packages but does not see the tools_assets.
+
+```json
+[
+    "packages/cupertino_icons/assets/CupertinoIcons.ttf",
+
+    "packages/theme_common/assets/diagrams/draw201.vsdx",
+    "packages/theme_common/assets/docs/doc201.md",
+    "packages/theme_common/assets/docs/doc202.md",
+
+    "packages/utilities/assets/docs/doc101.md",
+    "packages/utilities/assets/docs/doc102.md",
+    "packages/utilities/assets/models/model101.json",
+
+    "packages/utilities/lib/resources/icon101.png",
+    "packages/utilities/lib/resources/libassets.json"
+]
+```
+
+Files in lib will be packaged up with the app but they only appear to the AssetManager if you add them to the assets in `pubspec.yaml`. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
+
+## Assets visible to tests
+
+Tests see everythining in `pubspec.yaml` that is scoped to `dependencies` or to `dev_dependencies`.  Tests can use the test_tools assets that are scoped to the tests in `pubspec.yaml`
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  utilities:
+    path: ../utilities
+  theme_common:
+    path: ../theme_common
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  test_tools:
+    path: ../test_tools
+```
+
+We can see this when interrogating for available assets.
 
 ```json
 [
@@ -119,27 +173,6 @@ The tests see the test_tools assets.
 ]
 ```
 
-Files in lib will be packaged up with the app but they only appear to the AssetManager if you add them to the assets in `pubspec.yaml`. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
-
-## Assets seen from an app
-
-The demo application does not see the tools_assets but it does see other assets brought in by other packages used in the application.
-
-```json
-[
-    "packages/cupertino_icons/assets/CupertinoIcons.ttf",
-
-    "packages/theme_common/assets/diagrams/draw201.vsdx",
-    "packages/theme_common/assets/docs/doc201.md",
-    "packages/theme_common/assets/docs/doc202.md",
-
-    "packages/utilities/assets/docs/doc101.md",
-    "packages/utilities/assets/docs/doc102.md",
-    "packages/utilities/assets/models/model101.json",
-
-    "packages/utilities/lib/resources/icon101.png",
-    "packages/utilities/lib/resources/libassets.json"
-]
-```
+## Non code files in /lib
 
 Files in lib will be packaged up with the app but they only appear to the AssetManager if you add them to the assets in `pubspec.yaml`. You must add them to the asset list if you want them to be picked up by AssetManager or show up in the AssetManifest.
